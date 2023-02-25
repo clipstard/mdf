@@ -1,0 +1,67 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "baseUrl": "./",
+        "outDir": "./dist/out-tsc",
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitOverride": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "sourceMap": true,
+        "declaration": false,
+        "downlevelIteration": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "target": "es2020",
+        "module": "es2020",
+        "removeComments": true,
+        "lib": [
+            "es2020",
+            "dom"
+        ],
+        "paths": {
+            "@shared/*": [
+                "src/app/shared/*"
+            ],
+            "@core/*": [
+                "src/app/core/*"
+            ],
+            "@auth/*": [
+                "src/app/auth/*"
+            ],
+            "@security/*": [
+                "src/app/security/*"
+            ],
+            "@theme/*": [
+                "src/theme/*"
+            ],
+            "@admin/*": [
+                "src/app/features/admin/*"
+            ],
+            "@permanent/*": [
+                "src/app/features/permanent/*"
+            ],
+            "@permanent-admin/*": [
+                "src/app/permanent-admin/*"
+            ],
+            "@client/*": [
+                "src/app/features/client/*"
+            ],
+            "@interim/*": [
+                "src/app/features/interim/*"
+            ],
+            "@mission/*": [
+                "src/app/mission/*"
+            ],
+            "@assets/*": [
+                "src/assets/*"
+            ],
+            "@environments/*": [
+                "src/environments/*"
+            ],
+        }
+    }
+}
