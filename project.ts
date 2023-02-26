@@ -18,22 +18,60 @@ var input = [
     '22023', '17539', '-26594', '-5631',
 ].map(Number);
 
-function findNextConsecutiveNegative(index) {
+interface MinSum {
+    peak: number;
+    startIndex: number;
+    endIndex: number;
+    actual: number;
+}
 
+function findNextConsecutiveNegative(index: number) {
+    let search: MinSum = {
+        peak: 0,
+        startIndex: index,
+        endIndex: index,
+        actual: 0,
+    };
+
+    let currentIndex = index;
+    while (search.actual <= 0 && currentIndex < input.length) {
+        search.actual += input[currentIndex];
+
+        if (search.actual < search.peak) {
+            search.peak = search.actual;
+            search.endIndex = currentIndex;
+        }
+
+        currentIndex++;
+    }
+
+    return search;
 }
 
 function resolve() {
     let sum = 0;
-    const rolls = input.shift();
+    const rolls = input.shift() ?? 0;
     console.log(input);
-
+    let minSums: MinSum[] = [];
     for (let i = 0; i < rolls; i++) {
-        const next = sum + input[i];
-
-        if (sum < next) {
-            sum += input[i];
+        let item = input[i];
+        if (item < 0) {
+            minSums.push(
+                findNextConsecutiveNegative(i)
+            );
         }
     }
+
+    console.log(minSums)
+    let min = 0
+    let minSearch = null;
+    minSums.forEach(item => {
+        if (item.peak < min) {
+            min = item.peak;
+            minSearch = item;
+        }
+    })
+    console.log({ result: minSearch, min })
 }
 
 
